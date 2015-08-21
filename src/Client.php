@@ -27,10 +27,10 @@
             return $this->id;
         }
 
-        // function setxxxxx($new_type)
-        // {
-        //     $this->type = $new_type;
-        // }
+        function setName($new_name)
+        {
+            $this->name = $new_name;
+        }
 
         function save()
         {
@@ -38,11 +38,11 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        // function update($new_type)
-        // {
-        //     $GLOBALS['DB']->exec("UPDATE xxxxx SET xxxxx = '{$new_xxxxx}' WHERE id = {$this->getId()};");
-        //     $this->setxxxxx($new_xxxxx);
-        // }
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+        }
 
         // function deleteOne()
         // {

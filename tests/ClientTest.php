@@ -113,23 +113,24 @@
             $this->assertEquals($test_client1, $result);
         }
 
-        // function test_update()
-        // {
-        //     //Arrange
-        //     $xxxxx = "";
-        //     $test_xxxxx = new xxxxx($xxxxx);
-        //     $test_xxxxx->save();
-        //
-        //     $new_xxxxx = "";
-        //
-        //     //Act
-        //     $test_xxxxx->update($new_xxxxx);
-        //     $result = $test_xxxxx->getxxxxx();
-        //
-        //     //Assert
-        //     $this->assertEquals($new_xxxxx, $result);
-        //
-        // }
+        function test_update()
+        {
+            //Arrange
+            $name = "George";
+            $stylist_id = 1;
+            $test_client = new Client($name, $stylist_id);
+            $test_client->save();
+
+            $new_name = "Greg";
+
+            //Act
+            $test_client->update($new_name);
+            $result = $test_client->getName();
+
+            //Assert
+            $this->assertEquals($new_name, $result);
+
+        }
 
         // function test_deleteOne()
         // {
