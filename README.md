@@ -11,7 +11,7 @@ Using PHP, SQL, and Silex, this app will create a database to store the names of
 ## Setup
 
 * clone git repository: https://github.com/fignewtonfood/wk3_code_review.git
-* import database xxxxx using phpMyAdmin
+* import database hair_salon.zip using phpMyAdmin
 * run composer install in project folder in terminal
 * start local php server in project subfolder labeled 'web'
 * navigate to localhost in browser
