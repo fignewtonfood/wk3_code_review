@@ -1,6 +1,6 @@
 SPEC SHEET FOR SALON
 
-SAVES/GETS/DELETES
+SAVES/GETS/DELETEALLS
 
 // Test Stylist::save()
 1) Save a stylist
@@ -16,6 +16,7 @@ SAVES/GETS/DELETES
     Input1: "Sandra"
     Input2: "Barbara"
     Output: []
+    
 // Test Client::save()
 4) Save a client
     Input: ["George", 1]
@@ -74,7 +75,7 @@ UPDATES
     Output: "Greg"
 
 
-DELETES
+DELETE ONES
 
 // Test Client::deleteOne()
 13) Delete one client
