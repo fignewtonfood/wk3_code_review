@@ -18,7 +18,7 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get('/', function() use($app){
-        return $app['twig']->render('index.html.twig', array('stylists' => Stylists::getAll()));
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
     $app->post("/stylists", function() use ($app) {
@@ -32,9 +32,9 @@
         return $app['twig']->render('index.html.twig');
     });
 
-    $app->get("/stylists/{id}", function($id) use ($app){
+    $app->get("/stylist/{id}", function($id) use ($app){
         $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'tasks' => $stylist->find()));
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->find($id)));
     });
 
     $app->post("/clients", function() use ($app) {
@@ -43,7 +43,8 @@
         $client = new Client($name, $stylist_id);
         $client->save();
         $stylist = Stylist::find($stylist_id);
-        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'tasks' => $stylist->find()));
+        $variable = $stylist->find($stylist_id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
     return $app;
