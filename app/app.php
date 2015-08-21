@@ -69,6 +69,7 @@
         $client = Client::findByClientId($id);
         return $app['twig']->render('client_edit.html.twig', array('client' => $client));
     });
+
 //creates a route to the client's page upon updating the client's name and renders index storing 'stylists' as an index to all stylists so that twig can use them
     $app->patch("/client/{id}", function($id) use ($app) {
         $name = $_POST['name'];

@@ -65,6 +65,7 @@
             }
             return $found_clients;
         }
+
 //finds and returns clients by client id
         static function findByClientId($search_id)
         {
