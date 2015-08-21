@@ -10,10 +10,10 @@
             $this->name = $name;
         }
 
-        // function getxxxxx()
-        // {
-        //     return $this->type;
-        // }
+        function getName()
+        {
+            return $this->name;
+        }
 
         // function setxxxxx($new_type)
         // {
@@ -27,8 +27,8 @@
 
         function save()
         {
-            // $GLOBALS['DB']->exec("INSERT INTO xxxxx (xxxxx2) VALUES ('{$this->getxxxxx()}');");
-            // $this->id = $GLOBALS['DB']->lastInsertId();
+            $GLOBALS['DB']->exec("INSERT INTO stylists (name) VALUES ('{$this->getName()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         // function update($new_type)
@@ -56,19 +56,20 @@
 
         static function getAll()
         {
-        //     $returned_xxxxx = $GLOBALS['DB']->query("SELECT * FROM xxxxx;");
-        //     $xxxxx = array();
-        //     foreach($returned_xxxxx as $xxxxx){
-        //         $type = $xxxxx['xxxxx'];
-        //         $id = $xxxxx['id'];
-        //         $new_xxxxx = new xxxxx($xxxxx, $id);
-        //         array_push($xxxxx, $new_xxxxx);
-        //     }
-        //     return $xxxxx;
-        // }
+            $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $stylists = array();
+            foreach($returned_stylists as $stylist){
+                $name = $stylist['name'];
+                $id = $stylist['id'];
+                $new_stylist = new Stylist($name, $id);
+                array_push($stylists, $new_stylist);
+            }
+            return $stylists;
+        }
+
         // static function deleteAll()
         // {
         //     $GLOBALS['DB']->exec("DELETE FROM xxxxx;");
-        }
+        // }
     }
  ?>
