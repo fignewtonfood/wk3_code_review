@@ -48,18 +48,19 @@
         // {
         //     $GLOBALS['DB']->exec("DELETE FROM xxxxx WHERE id = {$this->getId()};");
         // }
-        // static function find($search_id)
-        // {
-        //     $found_xxxxx = null;
-        //     $xxxxx_to_search = xxxxx::getAll();
-        //     foreach($xxxxx_to_search as $xxxxx){
-        //         $xxxxx_id = $xxxxx->getId();
-        //         if($xxxxx_id=== $search_id){
-        //             $found_xxxxx = $xxxxx;
-        //         }
-        //     }
-        //     return $found_xxxxx;
-        // }
+
+        static function find($search_id)
+        {
+            $found_clients = null;
+            $clients_to_search = Client::getAll();
+            foreach($clients_to_search as $client){
+                $stylist_id = $client->getStylistId();
+                if($stylist_id == $search_id){
+                    $found_clients = $client;
+                }
+            }
+            return $found_clients;
+        }
 
         static function getAll()
         {

@@ -6,6 +6,7 @@
     */
 
     require_once "src/Client.php";
+    require_once "src/Stylist.php";
     $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
@@ -16,6 +17,7 @@
         protected function tearDown()
         {
             Client::deleteAll();
+            Stylist::deleteAll();
         }
 
         function test_save()
@@ -85,22 +87,31 @@
             $this->assertEquals(true, is_numeric($result));
         }
 
-        // function test_find()
-        // {
-        //     //Arrange
-        //     $xxxxx1 = "";
-        //     $test_xxxxx1 = new xxxxx($xxxxx1);
-        //     $test_xxxxx1->save();
-        //     $xxxxx2 = "";
-        //     $test_xxxxx2 = new xxxxx($xxxxx2);
-        //     $test_cxxxxx2->save();
-        //
-        //     //Act
-        //     $result = xxxxx::find($test_xxxxx1->getId());
-        //
-        //     //Assert
-        //     $this->assertEquals($test_xxxxx1, $result);
-        // }
+        function test_find()
+        {
+            //Arrange
+            $stylist_name1 = "Sandra";
+            $test_stylist1 = new Stylist($stylist_name1);
+            $test_stylist1->save();
+            $stylist_name2 = "Barbara";
+            $test_stylist2 = new Stylist($stylist_name2);
+            $test_stylist2->save();
+
+            $client_name1 = "George";
+            $stylist_id1 = $test_stylist1->getId();
+            $test_client1 = new Client($client_name1, $stylist_id1);
+            $test_client1->save();
+            $client_name2 = "Ben";
+            $stylist_id2 = $test_stylist2->getId();
+            $test_client2 = new Client($client_name2, $stylist_id2);
+            $test_client2->save();
+
+            //Act
+            $result = Client::find($test_stylist1->getId());
+
+            //Assert
+            $this->assertEquals($test_client1, $result);
+        }
 
         // function test_update()
         // {
@@ -127,7 +138,7 @@
         //     $test_xxxxx1 = new xxxxx($xxxxx1);
         //     $test_xxxxx1->save();
         //
-        //     $type2 = "";
+        //     $stylist_name2 = "";
         //     $test_xxxxx2 = new xxxxx($xxxxx2);
         //     $test_xxxxx2->save();
         //
