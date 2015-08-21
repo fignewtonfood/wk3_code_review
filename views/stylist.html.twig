@@ -15,7 +15,7 @@
                 <p>Here are the clients:</p>
                 <ul>
                     {% for client in clients %}
-                        <li>{{ client.getName }}</li>
+                        <li><a href="/client/{{ client.getId }}/edit">{{ client.getName }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
@@ -42,7 +42,19 @@
                 </form>
             </div>
 
-            <p><a href='/'>Home</a></p>
+            <div class = 'container'>
+                <form action='/stylist/{{ stylist.getId }}/edit' method='get'>
+                    <button type='submit'>Edit this stylist</button>
+                </form>
+            </div>
+
+
+            <div class = 'container'>
+                <form action='/'>
+                    <button type='submit'>Home</button>
+                </form>
+            </div>
+
         </footer>
     </body>
 </html>
