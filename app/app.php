@@ -32,9 +32,11 @@
         return $app['twig']->render('index.html.twig');
     });
 
+//Can't pass through list of matched clients to stylist.html.twig page
     $app->get("/stylist/{id}", function($id) use ($app){
         $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->find($id)));
+        // $client = Client::find($id);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
     $app->post("/clients", function() use ($app) {
