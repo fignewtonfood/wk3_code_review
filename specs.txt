@@ -48,7 +48,7 @@ x8)Return id for a client object
 FIND IDS
 
 // Test Stylist::find($id)
-9) Find stylists by id
+x9) Find stylists by id
     Input1: ["Sandra", {auto-incremented id1}]
     Input2: ["Barbara", {auto-incremented id2}]
     Output: ["Sandra", {auto-incremented id1}]

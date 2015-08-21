@@ -70,7 +70,7 @@
         function test_getId()
         {
             //Arrange
-            $name = "";
+            $name = "Sandra";
             $test_stylist = new Stylist($name);
             $test_stylist->save();
 
@@ -81,22 +81,22 @@
             $this->assertEquals(true, is_numeric($result));
         }
 
-        // function test_find()
-        // {
-        //     //Arrange
-        //     $xxxxx1 = "";
-        //     $test_xxxxx1 = new xxxxx($xxxxx1);
-        //     $test_xxxxx1->save();
-        //     $xxxxx2 = "";
-        //     $test_xxxxx2 = new xxxxx($xxxxx2);
-        //     $test_cxxxxx2->save();
-        //
-        //     //Act
-        //     $result = xxxxx::find($test_xxxxx1->getId());
-        //
-        //     //Assert
-        //     $this->assertEquals($test_xxxxx1, $result);
-        // }
+        function test_find()
+        {
+            //Arrange
+            $name1 = "Sandra";
+            $test_stylist1 = new Stylist($name1);
+            $test_stylist1->save();
+            $name2 = "Barbara";
+            $test_stylist2 = new Stylist($name2);
+            $test_stylist2->save();
+
+            //Act
+            $result = Stylist::find($test_stylist1->getId());
+
+            //Assert
+            $this->assertEquals($test_stylist1, $result);
+        }
 
         // function test_update()
         // {
