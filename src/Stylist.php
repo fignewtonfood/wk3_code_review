@@ -69,7 +69,7 @@
 
         static function deleteAll()
         {
-            // $GLOBALS['DB']->exec("DELETE FROM xxxxx;");
+            $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
     }
  ?>

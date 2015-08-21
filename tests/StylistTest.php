@@ -13,41 +13,41 @@
 
     class StylistTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        // {
-        //     Stylist::deleteAll();
-        // }
+        protected function tearDown()
+        {
+            Stylist::deleteAll();
+        }
 
-        // function test_save()
-        // {
-        //     //Arrange
-        //     $name = "Sandra";
-        //     $test_stylist = new Stylist($name);
-        //
-        //     //Act
-        //     $test_stylist->save();
-        //     $result = Stylist::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals($test_stylist, $result[0]);
-        // }
+        function test_save()
+        {
+            //Arrange
+            $name = "Sandra";
+            $test_stylist = new Stylist($name);
 
-        // function test_getAll()
-        // {
-        //     //Arrange
-        //     $name1 = "Sandra";
-        //     $name2 = "Barbara";
-        //     $test_stylist1 = new Stylist($name1);
-        //     $test_stylist1->save();
-        //     $test_stylist2 = new Stylist($name2);
-        //     $test_stylist2->save();
-        //
-        //     //Act
-        //     $result = Stylist::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_stylist1, $test_stylist2], $result);
-        // }
+            //Act
+            $test_stylist->save();
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals($test_stylist, $result[0]);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
+            $name1 = "Sandra";
+            $name2 = "Barbara";
+            $test_stylist1 = new Stylist($name1);
+            $test_stylist1->save();
+            $test_stylist2 = new Stylist($name2);
+            $test_stylist2->save();
+
+            //Act
+            $result = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([$test_stylist1, $test_stylist2], $result);
+        }
 
         function test_deleteAll()
         {
