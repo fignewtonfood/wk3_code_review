@@ -5,134 +5,137 @@
     * @backupStaticAttributes disabled
     */
 
-    require_once "src/xxxxx.php";
-    $server = 'mysql:host=localhost;dbname=xxxxx_test';
+    require_once "src/Client.php";
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class xxxxxTest extends PHPUnit_Framework_TestCase
+    class ClientTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
-            xxxxx::deleteAll();
+            Client::deleteAll();
         }
 
         function test_save()
         {
             //Arrange
-            $xxxxx = "";
-            $test_xxxxx = new xxxxx($xxxxx);
+            $name = "George";
+            $stylist_id = 1;
+            $test_client = new Client($name, $stylist_id);
 
             //Act
-            $test_xxxxx->save();
-            $result = xxxxx::getAll();
+            $test_client->save();
+            $result = Client::getAll();
 
             //Assert
-            $this->assertEquals($test_xxxxx, $result[0]);
+            $this->assertEquals($test_client, $result[0]);
         }
 
         function test_getAll()
         {
             //Arrange
-            $xxxxx1 = "";
-            $xxxxx2 = "";
-            $test_xxxxx1 = new xxxxx($xxxxx1);
-            $test_xxxxx1->save();
-            $test_xxxxx2 = new xxxxx($xxxxx2);
-            $test_xxxxx2->save();
+            $name1 = "George";
+            $name2 = "Ben";
+            $stylist_id = 1;
+            $test_client1 = new Client($name1, $stylist_id);
+            $test_client1->save();
+            $test_client2 = new Client($name2, $stylist_id);
+            $test_client2->save();
 
             //Act
-            $result = xxxxx::getAll();
+            $result = Client::getAll();
 
             //Assert
-            $this->assertEquals([$test_xxxxx1, $test_xxxxx2], $result);
+            $this->assertEquals([$test_client1, $test_client2], $result);
         }
 
         function test_deleteAll()
         {
             //Arrange
-            $xxxxx1 = "";
-            $xxxxx2 = "";
-            $test_xxxxx1 = new xxxxx($xxxxx1);
-            $test_xxxxx1->save();
-            $test_xxxxx2 = new xxxxx($xxxxx2);
-            $test_xxxxx2->save();
+            $name1 = "George";
+            $stylist_id = 1;
+            $name2 = "Ben";
+            $test_client1 = new Client($name1, $stylist_id);
+            $test_client1->save();
+            $test_client2 = new Client($name2, $stylist_id);
+            $test_client2->save();
 
             //Act
-            xxxxx::deleteAll();
+            Client::deleteAll();
+            $result = Client::getAll();
 
             //Assert
-            $result = xxxxx::getAll();
             $this->assertEquals([], $result);
         }
 
-        function test_getId()
-        {
-            //Arrange
-            $xxxxx = "";
-            $test_xxxxx = new xxxxx($xxxxx);
-            $test_xxxxx->save();
+        // function test_getId()
+        // {
+        //     //Arrange
+        //     $xxxxx = "";
+        //     $test_xxxxx = new xxxxx($xxxxx);
+        //     $test_xxxxx->save();
+        //
+        //     //Act
+        //     $result = $test_xxxxx->getId();
+        //
+        //     //Assert
+        //     $this->assertEquals(true, is_numeric($result));
+        // }
 
-            //Act
-            $result = $test_xxxxx->getId();
+        // function test_find()
+        // {
+        //     //Arrange
+        //     $xxxxx1 = "";
+        //     $test_xxxxx1 = new xxxxx($xxxxx1);
+        //     $test_xxxxx1->save();
+        //     $xxxxx2 = "";
+        //     $test_xxxxx2 = new xxxxx($xxxxx2);
+        //     $test_cxxxxx2->save();
+        //
+        //     //Act
+        //     $result = xxxxx::find($test_xxxxx1->getId());
+        //
+        //     //Assert
+        //     $this->assertEquals($test_xxxxx1, $result);
+        // }
 
-            //Assert
-            $this->assertEquals(true, is_numeric($result));
-        }
+        // function test_update()
+        // {
+        //     //Arrange
+        //     $xxxxx = "";
+        //     $test_xxxxx = new xxxxx($xxxxx);
+        //     $test_xxxxx->save();
+        //
+        //     $new_xxxxx = "";
+        //
+        //     //Act
+        //     $test_xxxxx->update($new_xxxxx);
+        //     $result = $test_xxxxx->getxxxxx();
+        //
+        //     //Assert
+        //     $this->assertEquals($new_xxxxx, $result);
+        //
+        // }
 
-        function test_find()
-        {
-            //Arrange
-            $xxxxx1 = "";
-            $test_xxxxx1 = new xxxxx($xxxxx1);
-            $test_xxxxx1->save();
-            $xxxxx2 = "";
-            $test_xxxxx2 = new xxxxx($xxxxx2);
-            $test_cxxxxx2->save();
-
-            //Act
-            $result = xxxxx::find($test_xxxxx1->getId());
-
-            //Assert
-            $this->assertEquals($test_xxxxx1, $result);
-        }
-
-        function test_update()
-        {
-            //Arrange
-            $xxxxx = "";
-            $test_xxxxx = new xxxxx($xxxxx);
-            $test_xxxxx->save();
-
-            $new_xxxxx = "";
-
-            //Act
-            $test_xxxxx->update($new_xxxxx);
-            $result = $test_xxxxx->getxxxxx();
-
-            //Assert
-            $this->assertEquals($new_xxxxx, $result);
-
-        }
-
-        function test_deleteOne()
-        {
-            //Arrange
-            $xxxxx1 = "";
-            $test_xxxxx1 = new xxxxx($xxxxx1);
-            $test_xxxxx1->save();
-
-            $type2 = "";
-            $test_xxxxx2 = new xxxxx($xxxxx2);
-            $test_xxxxx2->save();
-
-            //Act
-            $test_xxxxx1->deleteOne();
-            $result = xxxxx::getAll();
-
-            //Assert
-            $this->assertEquals([$test_xxxxx2], $result);
-        }
+        // function test_deleteOne()
+        // {
+        //     //Arrange
+        //     $xxxxx1 = "";
+        //     $test_xxxxx1 = new xxxxx($xxxxx1);
+        //     $test_xxxxx1->save();
+        //
+        //     $type2 = "";
+        //     $test_xxxxx2 = new xxxxx($xxxxx2);
+        //     $test_xxxxx2->save();
+        //
+        //     //Act
+        //     $test_xxxxx1->deleteOne();
+        //     $result = xxxxx::getAll();
+        //
+        //     //Assert
+        //     $this->assertEquals([$test_xxxxx2], $result);
+        // }
 
     }

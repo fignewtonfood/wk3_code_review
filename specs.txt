@@ -12,7 +12,7 @@ x2) Get all stylists
     Input2: "Barbara"
     Output: ["Sandra", "Barbara"]
 // Test Stylist::deleteAll()
-3) Delete all stylists
+x3) Delete all stylists
     Input1: "Sandra"
     Input2: "Barbara"
     Output: []
