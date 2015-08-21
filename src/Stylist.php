@@ -67,9 +67,9 @@
             return $stylists;
         }
 
-        // static function deleteAll()
-        // {
-        //     $GLOBALS['DB']->exec("DELETE FROM xxxxx;");
-        // }
+        static function deleteAll()
+        {
+            // $GLOBALS['DB']->exec("DELETE FROM xxxxx;");
+        }
     }
  ?>

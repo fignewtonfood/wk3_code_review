@@ -32,7 +32,24 @@
         //     $this->assertEquals($test_stylist, $result[0]);
         // }
 
-        function test_getAll()
+        // function test_getAll()
+        // {
+        //     //Arrange
+        //     $name1 = "Sandra";
+        //     $name2 = "Barbara";
+        //     $test_stylist1 = new Stylist($name1);
+        //     $test_stylist1->save();
+        //     $test_stylist2 = new Stylist($name2);
+        //     $test_stylist2->save();
+        //
+        //     //Act
+        //     $result = Stylist::getAll();
+        //
+        //     //Assert
+        //     $this->assertEquals([$test_stylist1, $test_stylist2], $result);
+        // }
+
+        function test_deleteAll()
         {
             //Arrange
             $name1 = "Sandra";
@@ -43,29 +60,12 @@
             $test_stylist2->save();
 
             //Act
+            Stylist::deleteAll();
             $result = Stylist::getAll();
 
             //Assert
-            $this->assertEquals([$test_stylist1, $test_stylist2], $result);
+            $this->assertEquals([], $result);
         }
-
-        // function test_deleteAll()
-        // {
-        //     //Arrange
-        //     $xxxxx1 = "";
-        //     $xxxxx2 = "";
-        //     $test_xxxxx1 = new xxxxx($xxxxx1);
-        //     $test_xxxxx1->save();
-        //     $test_xxxxx2 = new xxxxx($xxxxx2);
-        //     $test_xxxxx2->save();
-        //
-        //     //Act
-        //     xxxxx::deleteAll();
-        //
-        //     //Assert
-        //     $result = xxxxx::getAll();
-        //     $this->assertEquals([], $result);
-        // }
 
         // function test_getId()
         // {
