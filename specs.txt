@@ -3,11 +3,11 @@ SPEC SHEET FOR SALON
 SAVES/GETS/DELETEALLS
 
 // Test Stylist::save()
-1) Save a stylist
+x1) Save a stylist
     Input: "Sandra"
     Output: "Sandra"
 // Test Stylist::getAll()
-2) Get all stylists
+x2) Get all stylists
     Input1: "Sandra"
     Input2: "Barbara"
     Output: ["Sandra", "Barbara"]
@@ -16,7 +16,7 @@ SAVES/GETS/DELETEALLS
     Input1: "Sandra"
     Input2: "Barbara"
     Output: []
-    
+
 // Test Client::save()
 4) Save a client
     Input: ["George", 1]

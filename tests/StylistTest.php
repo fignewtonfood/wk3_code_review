@@ -18,36 +18,36 @@
         //     Stylist::deleteAll();
         // }
 
-        function test_save()
+        // function test_save()
+        // {
+        //     //Arrange
+        //     $name = "Sandra";
+        //     $test_stylist = new Stylist($name);
+        //
+        //     //Act
+        //     $test_stylist->save();
+        //     $result = Stylist::getAll();
+        //
+        //     //Assert
+        //     $this->assertEquals($test_stylist, $result[0]);
+        // }
+
+        function test_getAll()
         {
             //Arrange
-            $name = "Sandra";
-            $test_stylist = new Stylist($name);
+            $name1 = "Sandra";
+            $name2 = "Barbara";
+            $test_stylist1 = new Stylist($name1);
+            $test_stylist1->save();
+            $test_stylist2 = new Stylist($name2);
+            $test_stylist2->save();
 
             //Act
-            $test_stylist->save();
             $result = Stylist::getAll();
 
             //Assert
-            $this->assertEquals($test_stylist, $result[0]);
+            $this->assertEquals([$test_stylist1, $test_stylist2], $result);
         }
-
-        // function test_getAll()
-        // {
-        //     //Arrange
-        //     $xxxxx1 = "";
-        //     $xxxxx2 = "";
-        //     $test_xxxxx1 = new xxxxx($xxxxx1);
-        //     $test_xxxxx1->save();
-        //     $test_xxxxx2 = new xxxxx($xxxxx2);
-        //     $test_xxxxx2->save();
-        //
-        //     //Act
-        //     $result = xxxxx::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_xxxxx1, $test_xxxxx2], $result);
-        // }
 
         // function test_deleteAll()
         // {
