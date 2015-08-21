@@ -13,13 +13,4 @@
         $category = Category::find($category_id);
         return $app['twig']->render('category.html.twig', array('category' => $category, 'tasks' => $category->getTasks()));
     });
-    $app->post("/delete_categories", function() use ($app) {
-        Category::deleteAll();
-        Task::deleteAll();
-        return $app['twig']->render('index.html.twig');
-    });
-    $app->post("/delete_tasks", function() use ($app) {
-        Task::deleteAll();
-        return $app['twig']->render('index.html.twig');
-    });
 ?>
