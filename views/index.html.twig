@@ -1,3 +1,4 @@
+<!-- HOMEPAGE -->
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -9,12 +10,13 @@
             <h1>Welcome to the Hair Salon!</h1>
         </div>
     </div>
-
+<!-- List of Stylists c-R-u-d -->
     <div class = 'container'>
         {% if stylists is not empty %}
             <p>Here are all your stylists:</p>
             <ul>
                 {% for stylist in stylists %}
+<!-- Link to Stylists Pages -->
                     <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
                 {% endfor %}
             </ul>
@@ -22,7 +24,7 @@
             <p>There are no stylists yet!</p>
         {% endif %}
     </div>
-
+<!-- Add a Stylist C-r-u-d -->
     <div class = 'container'>
         <p>Add a new stylist:</p>
 
@@ -33,7 +35,7 @@
             <button type="submit">Add stylist</button>
         </form>
     </div>
-
+<!-- Delete all stylists -->
     <div class = 'container'>
         <form action='/delete_stylists' method='post'>
             <button type='submit'>Delete All Stylists</button>

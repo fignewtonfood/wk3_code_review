@@ -1,3 +1,4 @@
+<!-- CLIENT EDIT PAGE -->
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -9,7 +10,7 @@
                 <h1>Update {{ client.getName }}</h1>
             </div>
         </div>
-
+<!-- Update Client c-r-U-d -->
         <div class = 'container'>
             <form id="form_id" action="/client/{{ client.getId }}" method="post">
                 <input name="_method" type="hidden" value="patch">
@@ -19,7 +20,7 @@
 
                 <button type="submit">Update</button>
             </form>
-
+<!-- Delete Client c-r-u-D -->
             <form action="/client/{{ client.getId }}" method="post">
                 <input name="_method" type="hidden" value="delete">
 
