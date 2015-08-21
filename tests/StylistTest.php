@@ -17,7 +17,7 @@
         protected function tearDown()
         {
             Stylist::deleteAll();
-            Client::deleteAll();
+            stylist::deleteAll();
         }
 
         function test_save()
@@ -100,23 +100,22 @@
             $this->assertEquals($test_stylist1, $result);
         }
 
-        // function test_update()
-        // {
-        //     //Arrange
-        //     $xxxxx = "";
-        //     $test_xxxxx = new xxxxx($xxxxx);
-        //     $test_xxxxx->save();
-        //
-        //     $new_xxxxx = "";
-        //
-        //     //Act
-        //     $test_xxxxx->update($new_xxxxx);
-        //     $result = $test_xxxxx->getxxxxx();
-        //
-        //     //Assert
-        //     $this->assertEquals($new_xxxxx, $result);
-        //
-        // }
+        function test_update()
+        {
+            //Arrange
+            $name = "Barbara";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+
+            $new_name = "Beth";
+
+            //Act
+            $test_stylist->update($new_name);
+            $result = $test_stylist->getName();
+
+            //Assert
+            $this->assertEquals($new_name, $result);
+        }
 
         // function test_deleteOne()
         // {

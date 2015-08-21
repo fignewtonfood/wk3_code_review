@@ -53,7 +53,7 @@ x9) Find stylists by id
     Input2: ["Barbara", {auto-incremented id2}]
     Output: ["Sandra", {auto-incremented id1}]
 // Test Client::findByStylist($stylist_id)
-10) Find clients by stylist id
+X10) Find clients by stylist id
     Input1a: ["Sandra", {auto-incremented stylist id1}]
     Input1b: ["George", {auto-incremented stylist id1}, {auto-incremented client id1}]
     Input2a: ["Barbara", {auto-incremented stylist id2}]
@@ -64,12 +64,12 @@ x9) Find stylists by id
 UPDATES
 
 // Test Stylist::updateName()
-11) Update a stylist's name
+x11) Update a stylist's name
     Input_Old: "Barbara"
     Input_New: "Beth"
     Output: "Beth"
 // Test Client::updateName()
-12) Update a client's name
+x12) Update a client's name
     Input_Old: "George"
     Input_New: "Greg"
     Output: "Greg"

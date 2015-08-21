@@ -129,7 +129,6 @@
 
             //Assert
             $this->assertEquals($new_name, $result);
-
         }
 
         // function test_deleteOne()
