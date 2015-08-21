@@ -67,19 +67,19 @@
             $this->assertEquals([], $result);
         }
 
-        // function test_getId()
-        // {
-        //     //Arrange
-        //     $xxxxx = "";
-        //     $test_xxxxx = new xxxxx($xxxxx);
-        //     $test_xxxxx->save();
-        //
-        //     //Act
-        //     $result = $test_xxxxx->getId();
-        //
-        //     //Assert
-        //     $this->assertEquals(true, is_numeric($result));
-        // }
+        function test_getId()
+        {
+            //Arrange
+            $name = "";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+
+            //Act
+            $result = $test_stylist->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
 
         // function test_find()
         // {
