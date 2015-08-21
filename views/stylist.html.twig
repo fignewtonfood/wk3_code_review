@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <title>{{ stylist.getName }}'s clients</title>
+    </head>
+    <body>
+        <div class = 'container'>
+            <div class='jumbotron'>
+                <h1>{{ stylist.getName }}'s clients</h1>
+            </div>
+        </div>
+
+        <div class = 'container'>
+            {% if clients is not empty %}
+                <p>Here are the clients:</p>
+                <ul>
+                    {% for client in clients %}
+                        <li>{{ client.getName }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div class = 'container'>
+            <h4>Add a client</h4>
+
+            <form action="/clients" method="post">
+                <input type="hidden" name="client_id" id="client_id" value="{{ client.getId() }}">
+                <label for='name'>Client name</label>
+                <input id='name' name='name' type='text' required>
+
+                <button type='submit'>Add client</button>
+            </form>
+        </div>
+
+        <footer class='footer'>
+                <p><a href='/'>Home</a></p>
+        </footer>
+    </body>
+</html>
