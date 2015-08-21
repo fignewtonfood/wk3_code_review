@@ -78,11 +78,11 @@ x12) Update a client's name
 DELETE ONES
 
 // Test Client::deleteOne()
-13) Delete one client
+x13) Delete one client
     Input: ["Sandra", "Barbara"]
     Output: ["Barbara"]
 // Test Stylist::deleteOne()
-14) Delete one stylist and all clients associated
+x14) Delete one stylist and all clients associated
     Input1a: ["Sandra", {auto-incremented stylist id1}]
     Input1b: ["George", {auto-incremented stylist id1}, {auto-incremented client id1}]
     Input1c: ["Greg", {auto-incremented stylist id1}, {auto-incremented client id2}]

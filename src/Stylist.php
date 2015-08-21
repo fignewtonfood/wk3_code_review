@@ -37,10 +37,11 @@
             $this->setName($new_name);
         }
 
-        // function deleteOne()
-        // {
-        //     $GLOBALS['DB']->exec("DELETE FROM xxxxx WHERE id = {$this->getId()};");
-        // }
+        function deleteOne()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE stylist_id = {$this->getId()};");
+        }
 
         static function find($search_id)
         {
