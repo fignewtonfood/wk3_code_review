@@ -1,3 +1,4 @@
+<!-- STYLIST PAGE -->
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -9,7 +10,7 @@
                 <h1>{{ stylist.getName }}'s clients</h1>
             </div>
         </div>
-
+<!-- List of stylists c-R-u-d -->
         <div class = 'container'>
             {% if clients is not empty %}
                 <p>Here are the clients:</p>
@@ -23,6 +24,10 @@
             {% endif %}
         </div>
 
+        <div class = "container">
+            <p><mark>Click on client name to edit or delete</mark></p>
+        </div>
+<!-- Create a client C-r-u-d -->
         <div class = 'container'>
             <h4>Add a client</h4>
 
@@ -34,14 +39,14 @@
                 <button type='submit'>Add client</button>
             </form>
         </div>
-
+<!-- Delete all clients -->
         <footer class='footer'>
             <div class = 'container'>
                 <form action='/delete_clients' method='post'>
                     <button type='submit'>Delete All Clients</button>
                 </form>
             </div>
-
+<!-- Update stylist c-r-U-d -->
             <div class = 'container'>
                 <form action='/stylist/{{ stylist.getId }}/edit' method='get'>
                     <button type='submit'>Edit this stylist</button>

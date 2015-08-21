@@ -1,3 +1,4 @@
+<!-- STYLE EDIT PAGE -->
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -9,7 +10,7 @@
                 <h1>Update {{ stylists.getName }}</h1>
             </div>
         </div>
-
+<!-- Update Stylist c-r-U-d -->
         <div class = 'container'>
             <form id="form_id" action="/stylist/{{ stylist.getId }}" method="post">
                 <input name="_method" type="hidden" value="patch">
@@ -18,6 +19,12 @@
                 <input id="name" name="name" type="text">
 
                 <button type="submit">Update</button>
+            </form>
+<!-- Delete Stylist c-r-u-D -->
+            <form action="/stylist/{{ stylist.getId }}" method="post">
+                <input name="_method" type="hidden" value="delete">
+
+                <button type="submit">Delete this stylist</button>
             </form>
         </div>
     </body>

@@ -7,6 +7,7 @@
 
     require_once "src/Client.php";
     require_once "src/Stylist.php";
+// server signin
     $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
@@ -14,12 +15,13 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase
     {
+//tearDown function runs after every method
         protected function tearDown()
         {
             Client::deleteAll();
             Stylist::deleteAll();
         }
-
+//spec 4
         function test_save()
         {
             //Arrange
@@ -34,7 +36,7 @@
             //Assert
             $this->assertEquals($test_client, $result[0]);
         }
-
+//spec 5
         function test_getAll()
         {
             //Arrange
@@ -52,7 +54,7 @@
             //Assert
             $this->assertEquals([$test_client1, $test_client2], $result);
         }
-
+//spec 6
         function test_deleteAll()
         {
             //Arrange
@@ -71,7 +73,7 @@
             //Assert
             $this->assertEquals([], $result);
         }
-
+//spec 8
         function test_getId()
         {
             //Arrange
@@ -86,7 +88,7 @@
             //Assert
             $this->assertEquals(true, is_numeric($result));
         }
-
+//spec 10
         function test_find()
         {
             //Arrange
@@ -112,7 +114,7 @@
             //Assert
             $this->assertEquals($test_client1, $result);
         }
-
+//spec 12
         function test_update()
         {
             //Arrange
@@ -130,7 +132,7 @@
             //Assert
             $this->assertEquals($new_name, $result);
         }
-
+//spec 13
         function test_deleteOne()
         {
             //Arrange
