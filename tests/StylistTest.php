@@ -19,7 +19,7 @@
         protected function tearDown()
         {
             Stylist::deleteAll();
-            Stylist::deleteAll();
+            Client::deleteAll();
         }
 //spec 1
         function test_save()
