@@ -1,8 +1,45 @@
 <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>Hair Salon</title>
+</head>
+<body>
+    <div class = 'container'>
+        <div class='jumbotron'>
+            <h1>Welcome to the Hair Salon!</h1>
+        </div>
+    </div>
 
-    </body>
+    <div class = 'container'>
+        {% if stylists is not empty %}
+            <p>Here are all your stylists:</p>
+            <ul>
+                {% for stylist in stylists %}
+                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no stylists yet!</p>
+        {% endif %}
+    </div>
+
+    <div class = 'container'>
+        <p>Add a new stylist:</p>
+
+        <form action="/stylists" method="post">
+            <label for="name">Stylist name:</label>
+            <input id = "name" type="text" name="name" required>
+
+            <button type="submit">Add stylist</button>
+        </form>
+    </div>
+
+    <div class = 'container'>
+        <div class = 'spacer'>
+            <form action='/delete_stylists' method='post'>
+                <button type='submit'>Delete All Stylists</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
