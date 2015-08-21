@@ -22,14 +22,14 @@
             return $this->stylist_id;
         }
 
+        function getId()
+        {
+            return $this->id;
+        }
+
         // function setxxxxx($new_type)
         // {
         //     $this->type = $new_type;
-        // }
-
-        // function getId()
-        // {
-        //     return $this->id;
         // }
 
         function save()

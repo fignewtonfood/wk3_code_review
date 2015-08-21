@@ -18,16 +18,16 @@ x3) Delete all stylists
     Output: []
 
 // Test Client::save()
-4) Save a client
+x4) Save a client
     Input: ["George", 1]
     Output: ["George", 1]
 // Test Client::getAll()
-5) Get all clients
+x5) Get all clients
     Input1: ["George", 1]
     Input2: ["Ben", 2]
     Output: [("George", 1), ("Ben", 2)]
 // Test Client::deleteAll()
-6) Delete all clients
+x6) Delete all clients
     Input1: ["George", 1]
     Input2: ["Ben", 2]
     Output: []
@@ -40,7 +40,7 @@ RETURN IDS
     Input: ["Sandra", {auto-incremented id}]
     Output: {same auto-incremented id}
 // Test Client::getId()
-8)Return id for a client object
+x8)Return id for a client object
     Input: ["George", 1, {auto-incremented id}]
     Output: {same auto-incremented id}
 

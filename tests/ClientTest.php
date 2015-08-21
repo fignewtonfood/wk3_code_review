@@ -70,19 +70,20 @@
             $this->assertEquals([], $result);
         }
 
-        // function test_getId()
-        // {
-        //     //Arrange
-        //     $xxxxx = "";
-        //     $test_xxxxx = new xxxxx($xxxxx);
-        //     $test_xxxxx->save();
-        //
-        //     //Act
-        //     $result = $test_xxxxx->getId();
-        //
-        //     //Assert
-        //     $this->assertEquals(true, is_numeric($result));
-        // }
+        function test_getId()
+        {
+            //Arrange
+            $name = "George";
+            $stylist_id = 1;
+            $test_client = new Client($name, $stylist_id);
+            $test_client->save();
+
+            //Act
+            $result = $test_client->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
 
         // function test_find()
         // {
