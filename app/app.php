@@ -32,10 +32,8 @@
         return $app['twig']->render('index.html.twig');
     });
 
-//Can't pass through list of matched clients to stylist.html.twig page
     $app->get("/stylist/{id}", function($id) use ($app){
         $stylist = Stylist::find($id);
-        // $client = Client::find($id);
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
@@ -65,5 +63,18 @@
         $stylist->update($name);
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
+
+    $app->get("/client/{id}/edit", function($id) use ($app) {
+        $client = Client::findByClientId($id);
+        return $app['twig']->render('client_edit.html.twig', array('client' => $client));
+    });
+
+    // $app->patch("/stylist/{id}", function($id) use ($app) {
+    //     $name = $_POST['name'];
+    //     $stylist = Stylist::find($id);
+    //     $stylist->update($name);
+    //     return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    // });
+
 
     return $app;

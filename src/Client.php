@@ -62,18 +62,18 @@
             return $found_clients;
         }
 
-        // static function find2($search_id)
-        // {
-        //     $found_clients = null;
-        //     $clients_to_search = Client::getAll();
-        //     foreach($clients_to_search as $client){
-        //         $client_id = $client->getId();
-        //         if($client_id == $search_id){
-        //             $found_clients = $client;
-        //         }
-        //     }
-        //     return $found_clients;
-        // }
+        static function findByClientId($search_id)
+        {
+            $found_clients = null;
+            $clients_to_search = Client::getAll();
+            foreach($clients_to_search as $client){
+                $client_id = $client->getId();
+                if($client_id == $search_id){
+                    $found_clients = $client;
+                }
+            }
+            return $found_clients;
+        }
 
         static function getAll()
         {
