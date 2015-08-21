@@ -1,12 +1,12 @@
-# Best Restaurants
+# Hair Salon
 
-##### An app to xxxxxxxx, 2015 August 21st
+##### An app to store and retrieve hair salon stylists and clients, 2015 August 21st
 
 #### By Timothy White
 
 ## Description
 
-Using PHP, SQL, and Silex, this app will xxxxx. xxxxx data can include a number of unique information items such as xxxxx. xxxxx entries are unique to each xxxxx. Users can search for a xxxxx by xxxxx or by xxxxx.
+Using PHP, SQL, and Silex, this app will create a database to store the names of stylists and their clients. Salon data can will include name. Client entries are unique to each stylist. Users can search for a client by stylist.
 
 ## Setup
 
@@ -19,6 +19,14 @@ Using PHP, SQL, and Silex, this app will xxxxx. xxxxx data can include a number 
 ## Technologies Used
 
 This app utilizes PHP, Silex, SQL, Twig, CSS, and HTML
+
+## SQL Commands Used
+
+CREATE DATABASE hair_salon;
+USE hair_salon;
+CREATE TABLE stylists (name VARCHAR (255), id serial PRIMARY KEY);
+CREATE TABLE clients (name VARCHAR (255), stylist_id INT, id serial PRIMARY KEY);
+
 
 ### Legal
 
