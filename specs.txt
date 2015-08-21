@@ -1,141 +1,92 @@
-SPEC SHEET FOR xxxxxx
-// Test Cuisine::save()xxxxx
+SPEC SHEET FOR SALON
 
 SAVES/GETS/DELETES
 
-
-x1) Save a cuisine
-    Input: type = "seafood"
-    Output: cuisine object with type "seafood"
-// Test Cuisine::getAll()
-x2) Get all cuisines
-    Input: create 2 cuisine objects
-            cuisine1 type = "seafood"
-            cuisine2 type = "Italian"
-    Output: an array containing all cuisine objects
-// Test Cuisine::deleteAll()
-x3) Delete all cuisine objects
-    Input: create multiple cuisine objects
-            cuisine1 type = "seafood"
-            cuisine2 type = "Italian"
-    Output: empty array
-// Test Review::save()
-x4) Save a review
-    Input: comment = "This place is great!", resturant id = 1
-    Output: review object ["This place is great!",1]
-// Test Review::getAll()
-x5) Get all reviews
-    Input: create 2 review objects
-            review1 comment = "This place is great!"
-            restaurant id = 1
-            review2 comment = "This place sucks!!!"
-    Output: review objects [("This place is great!",1),("This place sucks!!!",1)]
-// Test Review::deleteAll()
-x6) Delete all review objects
-    Input: create multiple review objects
-            review1 comment = "This place is great!"
-            restaurant id = 1
-            review2 comment= "This place sucks!!!"
-    Output: empty array
-// Test Restaurant::save()
-x7) Save a restaurant
-    Input: name = "Burger King", cuisine id = 1
-    Output: restaurant object ["Burger King",1]
-// Test Restaurant::getAll()
-x8) Get all restaurants
-    Input: create 2 restaurant objects
-            restaurant1 name = "Burger King"
-            cuisine id = 1
-            restaurant2 name = "Dairy Queen"
-    Output: restaurant objects [("Burger King",1),("Dairy Queen",1)]
-// Test Restaurant::deleteAll()
-x9) Delete all restaurant objects
-    Input: create multiple restaurant objects
-            restaurant1 name = "Burger King"
-            cuisine id = 1
-            restaurant2 name= "Dairy Queen"
-    Output: empty array
-// Test Cuisine::getId()
+// Test Stylist::save()
+1) Save a stylist
+    Input: "Sandra"
+    Output: "Sandra"
+// Test Stylist::getAll()
+2) Get all stylists
+    Input1: "Sandra"
+    Input2: "Barbara"
+    Output: ["Sandra", "Barbara"]
+// Test Stylist::deleteAll()
+3) Delete all stylists
+    Input1: "Sandra"
+    Input2: "Barbara"
+    Output: []
+// Test Client::save()
+4) Save a client
+    Input: ["George", 1]
+    Output: ["George", 1]
+// Test Client::getAll()
+5) Get all clients
+    Input1: ["George", 1]
+    Input2: ["Ben", 2]
+    Output: [("George", 1), ("Ben", 2)]
+// Test Client::deleteAll()
+6) Delete all clients
+    Input1: ["George", 1]
+    Input2: ["Ben", 2]
+    Output: []
 
 
 RETURN IDS
 
-
-x10) Return id for a cuisine object
-    Input:  type = "seafood", cuisine id = 1
-    Output: 1
-// Test Review::getId()
-x11)Return id for a review object
-    Input:  comment = "This place is great!", review id = 1
-    Output: 1
-// Test Restaurant::getId()
-x12)Return id for a restaurant object
-    Input:  name = "Burger King", cuisine id = 1
-    Output: 1
-// Test Cuisine::find("id")
+// Test Stylist::getId()
+7) Return id for a stylist object
+    Input: ["Sandra", {auto-incremented id}]
+    Output: {same auto-incremented id}
+// Test Client::getId()
+8)Return id for a client object
+    Input: ["George", 1, {auto-incremented id}]
+    Output: {same auto-incremented id}
 
 
 FIND IDS
 
-
-x13) Find cuisines by id
-    Input: cuisine1 type = "seafood", cuisine id = 1
-            cuisine2 type = "Italian", cuisine id = 2
-    Output: cuisine object ["seafood", 1]
-// Test Review::find(restaurant_id)
-x14) Return all review by restaurant_id
-    Input:  review1 comment = "This place is great!"
-            restaurant_id = 1
-            review2 comment = "This place sucks!!!"
-            restaurant_id2 = 2
-    Output: review object ["This place is great!",1]
-// Test Restaurant::findName() (by name)
-x15) Return a restaurant by cuisine id
-    Input: cuisine_id = 1
-           restaurant = "Burger King", 1
-           cuisine_id2 = 2
-           restaurant2 = "Dairy Queen", 2
-    Output: restaurant object matching cuisine_id
-// Test Cuisine::updateType()
+// Test Stylist::find($id)
+9) Find stylists by id
+    Input1: ["Sandra", {auto-incremented id1}]
+    Input2: ["Barbara", {auto-incremented id2}]
+    Output: ["Sandra", {auto-incremented id1}]
+// Test Client::findByStylist($stylist_id)
+10) Find clients by stylist id
+    Input1a: ["Sandra", {auto-incremented stylist id1}]
+    Input1b: ["George", {auto-incremented stylist id1}, {auto-incremented client id1}]
+    Input2a: ["Barbara", {auto-incremented stylist id2}]
+    Input2b: ["Ben", {auto-incremented stylist id2}, {auto-incremented client id2}]
+    Output: ["George", {auto-incremented stylist id1}, {auto-incremented client id1}]
 
 
 UPDATES
 
-
-x16) Update a cuisine type
-    Input: old_cuisine = "seafod"
-           new_cuisine = "seafood"
-    Output: "seafood"
-// Test Review::updateComment()
-x17) Update a comment posted in a review
-    Input: restaurant id = 1
-           old_comment = "This place is great!"
-           new_comment = "This place sucks!!!"
-    Output: "This place sucks!!!"
-// Test Restaurant::updateName()
-x18) Update the name of a restaurant
-    Input: cuisine id = 1
-           old_name = "Buger King"
-           new_name = "Burger King"
-    Output: "Burger King"
-// Test Restaurant::updateCuisineId()
-x19) Update the cuisine associated with a restaurant
-    Input: name = "Burger King"
-           old cuisine = 1
-           new cuisine = 2
-    Output: 2
-// Test Review::deleteOne()
+// Test Stylist::updateName()
+11) Update a stylist's name
+    Input_Old: "Barbara"
+    Input_New: "Beth"
+    Output: "Beth"
+// Test Client::updateName()
+12) Update a client's name
+    Input_Old: "George"
+    Input_New: "Greg"
+    Output: "Greg"
 
 
 DELETES
 
-
-20) Delete one review comment
-    Input: "Terrible burgers!", "Great burgers!"
-    Output: "Great burgers!"
-// Test Restaurant::deleteOne()
-21) Delete one restaurant name and all comments associated
-    Input Names: "Salmon King", "Dairy Queen"
-    Input Comments1: "Great salmon!" "Terrible salmon!"
-    Input Comments2" "Great dairy!" "Terrible dairy!"
-    Output: "Dairy Queen"
+// Test Client::deleteOne()
+13) Delete one client
+    Input: ["Sandra", "Barbara"]
+    Output: ["Barbara"]
+// Test Stylist::deleteOne()
+14) Delete one stylist and all clients associated
+    Input1a: ["Sandra", {auto-incremented stylist id1}]
+    Input1b: ["George", {auto-incremented stylist id1}, {auto-incremented client id1}]
+    Input1c: ["Greg", {auto-incremented stylist id1}, {auto-incremented client id2}]
+    Input2a: ["Barbara", {auto-incremented stylist id3}]
+    Input2b: ["Ben", {auto-incremented stylist id3}, {auto-incremented client id3}]
+    Input2c: ["Brad", {auto-incremented stylist id3}, {auto-incremented client id4}]
+    Output1: ["Barbara", {auto-incremented stylist id3}]
+    Output2: [("Ben", {auto-incremented stylist id3}, {auto-incremented client id3}), ("Brad", {auto-incremented stylist id3}, {auto-incremented client id4})]
