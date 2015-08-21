@@ -1,10 +1,11 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/xxxxx.php";
+    require_once __DIR__."/../src/Client.php";
+    require_once __DIR__."/../src/Stylist.php";
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=xxxxx';
+    $server = 'mysql:host=localhost;dbname=hair_salon';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -17,9 +18,9 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get('/', function() use($app){
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylists::getAll()));
     });
 
-    xxxxxxxxxxxxxxxxx
+
 
     return $app;
